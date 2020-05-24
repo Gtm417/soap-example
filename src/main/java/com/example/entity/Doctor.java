@@ -1,4 +1,4 @@
-package com.example.restexample.entity;
+package com.example.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -23,6 +23,4 @@ public class Doctor {
     private String name;
     private String license;
     private String specialization;
-    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
-    private List<Patient> patient;
 }
