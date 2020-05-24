@@ -81,7 +81,7 @@
 				</executions>
 				<configuration>
 					<sources>
-						<source>${project.basedir}/src/main/resources/</source>
+						<source>${project.basedir}/src/main/resources/doctors.xsd</source>
 					</sources>
 				</configuration>
 			</plugin>

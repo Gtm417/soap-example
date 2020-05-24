@@ -20,17 +20,17 @@ public class WebServiceConfiguration extends WsConfigurerAdapter {
     }
 
     @Bean(name = "doctors")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema coursesSchema) {
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema doctorSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("Doctors");
         wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace("http://soapService.tutorial");
-        wsdl11Definition.setSchema(coursesSchema);
+        wsdl11Definition.setTargetNamespace("http://soapExample.tutorial");
+        wsdl11Definition.setSchema(doctorSchema);
         return wsdl11Definition;
     }
 
     @Bean
-    public XsdSchema coursesSchema() {
+    public XsdSchema doctorSchema() {
         return new SimpleXsdSchema(new ClassPathResource("doctors.xsd"));
     }
 }
