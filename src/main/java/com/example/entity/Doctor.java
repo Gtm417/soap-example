@@ -1,9 +1,7 @@
 package com.example.entity;
 
 
-
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -17,6 +15,13 @@ public class Doctor {
     private String specialization;
 
     public Doctor() {
+    }
+
+    public Doctor(int id, String name, String license, String specialization) {
+        this.id = id;
+        this.name = name;
+        this.license = license;
+        this.specialization = specialization;
     }
 
 
