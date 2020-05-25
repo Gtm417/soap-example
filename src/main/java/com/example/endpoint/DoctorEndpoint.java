@@ -11,7 +11,7 @@ import tutorial.soapservice.*;
 
 @Endpoint
 public class DoctorEndpoint {
-    private static final String NAMESPACE_URI = "http://soapExample.tutorial";
+    private static final String NAMESPACE_URI = "http://soapService.tutorial";
 
     private final DoctorRepository doctorRepository;
 
@@ -37,6 +37,7 @@ public class DoctorEndpoint {
         return response;
     }
 
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addDoctorRequest")
     @ResponsePayload
     public AddDoctorResponse addDoctor(@RequestPayload AddDoctorRequest request) {
         ObjectFactory objectFactory = new ObjectFactory();
@@ -47,11 +48,11 @@ public class DoctorEndpoint {
     }
 
     private Doctor mapDoctorFromRequest(AddDoctorRequest request) {
-        return Doctor.builder()
-                .name(request.getName())
-                .license(request.getLicense())
-                .specialization(request.getSpecialization())
-                .build();
+        Doctor doctor = new Doctor();
+        doctor.setName(request.getName());
+        doctor.setLicense(request.getLicense());
+        doctor.setSpecialization(request.getSpecialization());
+        return doctor;
     }
 
 
