@@ -28,7 +28,7 @@ public class DoctorEndpoint {
         Doctor doctorFromDb = doctorRepository.findById(request.getId())
                 .orElseThrow(DoctorNotFoundException::new);
 
-        tutorial.soapservice.Doctor doctor  = objectFactory.createDoctor();
+        tutorial.soapservice.Doctor doctor = objectFactory.createDoctor();
         doctor.setId(doctorFromDb.getId());
         doctor.setName(doctorFromDb.getName());
         doctor.setLicense(doctorFromDb.getLicense());
